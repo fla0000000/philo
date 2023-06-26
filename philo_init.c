@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 13:34:06 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/06/26 17:25:10 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/06/26 20:56:24 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ int	check_input(int ac, char **av, t_matrix *mat)
 {
 	if (ac != 5 && ac != 6)
 		return (write(1, "Error400\n", 9) - 8);
+	if (check(ac, av))
+		return (1);
 	mat->num_philo = ft_atoi(av[1]);
 	mat->time_death = ft_atoi(av[2]);
 	mat->time_eat = ft_atoi(av[3]);
 	mat->time_sleep = ft_atoi(av[4]);
+	mat->origin_time = get_time();
 	mat->room = ((t_philo *)malloc(sizeof(t_philo) * mat->num_philo));
-	if (pthread_mutex_init(&mat->lock, NULL) && (!mat->room))
+	if (pthread_mutex_init(&mat->lock, NULL))
 		return (1);
 	if (ac == 6)
 		mat->time_max_eat = ft_atoi(av[5]);
@@ -33,12 +36,26 @@ int	check_input(int ac, char **av, t_matrix *mat)
 	return (0);
 }
 
+int	check(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	if (ft_atoi(argv[1]) <= 0)
+		return (1);
+	while (++i < argc)
+	{
+		if (ft_atoi(argv[i]) <= 0)
+			return (1);
+	}
+	return (0);
+}
+
 int	philo_init(t_matrix *mat)
 {
 	int	i;
 
 	i = -1;
-	mat->origin_time = get_time();
 	while (++i < mat->num_philo)
 	{
 		if(init(mat, i))

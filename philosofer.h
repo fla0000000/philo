@@ -60,5 +60,6 @@ void				caseone(t_matrix *mat);
 int					play(t_matrix *mat);
 void				*philo_routine(void *empty);
 void				*ft_keeper(void *empty);
+int	check(int argc, char **argv);
 
 #endif

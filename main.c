@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:54:32 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/06/26 20:42:09 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/06/26 20:59:15 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	eat(t_philo *philo)
 	pthread_mutex_lock(&philo->mat->room[philo->next_fork].fork);
 	message(philo, FORK);
 	philo->eating = 1;
-	philo->life += philo->mat->time_death;
+	philo->time_life += philo->mat->time_death;
 	message(philo, EAT);
 	my_usleep(philo->mat->time_eat);
 	philo->count_eat++;
