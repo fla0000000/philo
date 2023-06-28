@@ -7,7 +7,6 @@
 # define THINK "is thinking"
 # define DIE "died"
 
-# include "libfreal/libft.h"
 # include <pthread.h>
 # include <stdint.h>
 # include <stdio.h>
@@ -51,15 +50,8 @@ int					check_input(int ac, char **av, t_matrix *mat);
 u_int64_t			get_time(void);
 int					philo_init(t_matrix *mat);
 int					ft_exit(t_matrix *mat);
-int					init(t_matrix *mat, int id);
 void				my_usleep(int ms);
 void				message(t_philo *philo, char *str);
-void				eat(t_philo *philo);
-void				died(t_matrix *mat);
 void				caseone(t_matrix *mat);
-int					play(t_matrix *mat);
-void				*philo_routine(void *empty);
-void				*ft_keeper(void *empty);
-int	check(int argc, char **argv);
 
 #endif

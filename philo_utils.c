@@ -6,11 +6,18 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:18:47 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/06/26 17:17:39 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/06/28 16:42:11 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosofer.h"
+
+void caseone(t_matrix *mat)
+{
+	message(&mat->room[0], FORK);
+	my_usleep(mat->time_death);	
+	mat->room[0].life = 0;
+}
 
 u_int64_t	get_time(void)
 {
@@ -40,12 +47,6 @@ void	my_usleep(int ms)
 		usleep(ms / 10);
 }
 
-void caseone(t_matrix *mat)
-{
-	message(&mat->room[0], FORK);
-	my_usleep(mat->time_death);	
-	mat->room[0].life = 0;
-}
 
 void	message(t_philo *philo, char *str)
 {
