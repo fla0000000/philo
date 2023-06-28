@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosofer.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/29 01:35:47 by flaviobiond       #+#    #+#             */
+/*   Updated: 2023/06/29 01:42:35 by flaviobiond      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILOSOFER_H
 # define PHILOSOFER_H
 
@@ -14,7 +26,7 @@
 # include <sys/time.h>
 # include <unistd.h>
 
-struct s_matrix;
+struct	s_matrix;
 
 typedef struct s_philo
 {
@@ -53,5 +65,6 @@ int					ft_exit(t_matrix *mat);
 void				my_usleep(int ms);
 void				message(t_philo *philo, char *str);
 void				caseone(t_matrix *mat);
+void				died(t_matrix *mat);
 
 #endif

@@ -6,16 +6,16 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:18:47 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/06/28 16:42:11 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/06/29 01:36:24 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosofer.h"
 
-void caseone(t_matrix *mat)
+void	caseone(t_matrix *mat)
 {
 	message(&mat->room[0], FORK);
-	my_usleep(mat->time_death);	
+	my_usleep(mat->time_death);
 	mat->room[0].life = 0;
 }
 
@@ -40,13 +40,12 @@ int	ft_exit(t_matrix *mat)
 
 void	my_usleep(int ms)
 {
-	u_int64_t start;
+	u_int64_t	start;
 
 	start = get_time();
 	while ((get_time() - start) < (u_int64_t)ms)
 		usleep(ms / 10);
 }
-
 
 void	message(t_philo *philo, char *str)
 {

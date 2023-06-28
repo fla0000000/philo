@@ -1,4 +1,4 @@
-NAME = philosofer
+NAME = philo
 SRCS = ${wildcard *.c}
 OBJS = $(SRCS:.c=.o)
 CC = gcc

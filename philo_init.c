@@ -6,7 +6,7 @@
 /*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 13:34:06 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/06/28 16:46:41 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/06/29 01:36:34 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_atoi(const char *str)
 	{
 		if (str[i++] == '-')
 			segn = -1;
-			check++;
+		check++;
 	}
 	if (check > 1)
 		return (j);
@@ -103,8 +103,8 @@ int	philo_init(t_matrix *mat)
 	i = -1;
 	while (++i < mat->num_philo)
 	{
-		if(init(mat, i))
-		return(1);
+		if (init(mat, i))
+			return (1);
 	}
-return (0);
+	return (0);
 }
